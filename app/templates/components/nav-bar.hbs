@@ -1,0 +1,47 @@
+{{! app/templates/components/nav-bar.hbs }}
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="#" class="navbar-brand">Cutly</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+              {{#active-link tagName="li"}}
+                {{#link-to "home"}}Map{{/link-to}}
+              {{/active-link}}
+              {{#active-link tagName="li"}}
+                {{#link-to "profile"}}Profile{{/link-to}}
+              {{/active-link}}
+              {{#active-link tagName="li"}}
+                {{#link-to "stylists"}}Stylist{{/link-to}}
+              {{/active-link}}
+              {{#active-link tagName="li"}}
+                {{#link-to "services"}}Service{{/link-to}}
+              {{/active-link}}
+              {{#active-link tagName="li"}}
+                {{#link-to "promotions"}}Promotions{{/link-to}}
+              {{/active-link}}
+              {{#active-link tagName="li"}}
+              <!-- not injecting the session service in the controller or component that backs the template in question. Need to provide access to the session information in application.js to the nav-bar compnent -->
+                {{#if session.isAuthenticated}}
+                {{#link-to "login"}}Sign out{{/link-to}}
+                {{else}}
+                 {{/if}}
+                {{#link-to "login"}}Sign in{{/link-to}}
+              {{/active-link}}
+      </ul>
+      <form class="navbar-form navbar-right">
+        <input type="text" class="form-control" placeholder="Search...">
+      </form>
+    </div>
+  </div>
+</nav>
+
+{{yield}}

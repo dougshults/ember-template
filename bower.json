@@ -1,0 +1,7 @@
+{
+  "name": "cutly",
+  "dependencies": {},
+  "devDependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}

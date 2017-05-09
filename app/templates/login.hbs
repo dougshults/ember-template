@@ -1,0 +1,22 @@
+
+
+
+{{outlet}}
+
+<div class="jumbotron">
+  <div class="container">
+      <div class="row">
+      {{#if session.isAuthenticated}}
+      <h1>Welcome back, {{session.currentUser.displayName}}!</h1>
+      <p>Cras mattis consectetur purus sit amet fermentum. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Maecenas faucibus mollis interdum.  {{#link-to 'profile'}}Visit profile {{/link-to}} id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Curabitur blandit tempus porttitor.
+      </p>
+      <button class="btn btn-default" {{action "signOut"}}>Sign out</button>
+      {{else}}
+      <h1>Sign up to get started 🙌 🎉</h1>
+        <button class="btn btn-default" {{action "signIn" "google"}}>Sign in with Google</button>
+        <button class="btn btn-default"  {{action "signIn" "facebook"}}>Sign in with Facebook</button>
+        <button class="btn btn-default"  {{action "signIn" "twitter"}}>Sign in with Twitter</button>
+      {{/if}}
+    </div>
+  </div>
+</div>
